@@ -8,7 +8,7 @@ Formato: una sección por versión, lo más nuevo arriba. Fechas en AAAA-MM-DD.
 
 - `/equipo`: la sesión principal hace de orquestador. Parte un encargo con partes independientes en dos a cuatro piezas, lanza los agentes en paralelo, manda a un revisor y entrega pidiendo tu sí. Nada sale hacia afuera sin ese sí.
 - `.claude/agents/`: el equipo de base de `/equipo`. `investigador` (hechos, hipótesis y preguntas, sin web), `constructor` (una pieza que se puede abrir), `redactor` (textos en tu voz, siempre BORRADOR) y `revisor` (compara cada entrega con su criterio de terminado). Ninguno tiene herramientas de web ni de comandos.
-- `scripts/abrir.mjs`: abre un archivo o una dirección web con el programa por defecto, sin intérprete de comandos. `/equipo` lo usa para mostrar lo que se puede ver.
+- `scripts/abrir.mjs`: abre una dirección web o un archivo que se puede ver (páginas, textos, PDF, imágenes) con el programa por defecto, sin intérprete de comandos. No abre programas ni accesos directos. `/equipo` lo usa para mostrar el resultado.
 
 ### Cambios
 
