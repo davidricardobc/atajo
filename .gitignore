@@ -1,0 +1,51 @@
+# Secretos: nunca entran al repo
+.env
+.env.*
+!.env.example
+.envrc
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+credentials*
+secrets.json
+secrets.yaml
+secrets.yml
+
+# Datos de la persona: fuera de git por defecto. El kit (skills, scripts, guías, plantillas)
+# se actualiza con git pull; tus datos se crean desde plantillas/datos/ y nunca se pisan.
+# Respaldo: copia la carpeta o guarda estas rutas en un repositorio privado tuyo (ver README).
+/perfil/
+/bitacora/
+/decisiones/
+/entrevistas/
+/revisiones/
+/proyectos/
+/archivo/
+/conocimiento/*
+/clientes/*
+!/clientes/LEEME.md
+/conexiones.md
+/kit.local.json
+/red/
+/CLAUDE.local.md
+
+# Lo que la persona crea con /leveling o /aprender: archivos con prefijo mi- (nunca los pisa una actualización)
+/.claude/skills/mi-*/
+/.agents/skills/mi-*/
+/scripts/mi-*
+/scripts/pruebas/mi-*
+/plantillas/mi-*
+
+# Estado de la sesión (lo escribe el hook SessionStart)
+/.atajo/
+
+# Configuración local de Claude Code (por máquina, no del kit)
+.claude/settings.local.json
+
+# Sistema y herramientas
+node_modules/
+.DS_Store
+Thumbs.db

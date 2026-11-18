@@ -1,0 +1,7 @@
+# Saltos de línea: LF en todo el kit; CRLF solo en PowerShell (PS 5.1 lo prefiere).
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary
+*.pdf binary
+*.woff2 binary

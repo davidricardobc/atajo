@@ -1,0 +1,139 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git ls-files*)",
+      "Bash(git check-ignore*)",
+      "Bash(git config user.name)",
+      "Bash(git config user.email)",
+      "Bash(claude --version)",
+      "Bash(codex --version)",
+      "Bash(node --version)",
+      "Bash(node scripts/*)",
+      "Bash(node --test*)",
+      "Bash(date*)",
+      "PowerShell(git --version)",
+      "PowerShell(git status*)",
+      "PowerShell(git log*)",
+      "PowerShell(git diff*)",
+      "PowerShell(git ls-files*)",
+      "PowerShell(git check-ignore*)",
+      "PowerShell(git config user.name)",
+      "PowerShell(git config user.email)",
+      "PowerShell(claude --version)",
+      "PowerShell(codex --version)",
+      "PowerShell(node --version)",
+      "PowerShell(node scripts/*)",
+      "PowerShell(node --test*)",
+      "PowerShell(Get-Date*)",
+      "PowerShell(Test-Path*)",
+      "Edit(./perfil/**)",
+      "Edit(./bitacora/**)",
+      "Edit(./decisiones/**)",
+      "Edit(./entrevistas/**)",
+      "Edit(./revisiones/**)",
+      "Edit(./conocimiento/**)",
+      "Edit(./proyectos/**)",
+      "Edit(./conexiones.md)",
+      "Edit(./kit.local.json)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/.env)",
+      "Read(./**/.env.*)",
+      "Read(./**/.envrc)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(./**/*.p12)",
+      "Read(./**/*.pfx)",
+      "Read(./**/id_rsa*)",
+      "Read(./**/id_ed25519*)",
+      "Read(./**/credentials*)",
+      "Read(./**/secrets.json)",
+      "Read(./**/secrets.yaml)",
+      "Read(./**/secrets.yml)",
+      "Edit(./.env)",
+      "Edit(./.env.*)",
+      "Edit(./**/.env)",
+      "Edit(./**/.env.*)",
+      "Edit(./**/.envrc)",
+      "Edit(./**/*.pem)",
+      "Edit(./**/*.key)",
+      "Edit(./**/*.p12)",
+      "Edit(./**/*.pfx)",
+      "Edit(./**/id_rsa*)",
+      "Edit(./**/id_ed25519*)",
+      "Edit(./**/credentials*)",
+      "Edit(./**/secrets.json)",
+      "Edit(./**/secrets.yaml)",
+      "Edit(./**/secrets.yml)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/scripts/sesion-inicio.mjs\"",
+            "timeout": 15,
+            "statusMessage": "Atajo: leyendo el punto de retorno"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/scripts/cierre.mjs\"",
+            "timeout": 15,
+            "statusMessage": "Atajo: revisando el punto de retorno"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/scripts/cierre.mjs\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/scripts/indice.mjs\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell|Read|Edit|Write|MultiEdit|NotebookEdit|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/scripts/guardia.mjs\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

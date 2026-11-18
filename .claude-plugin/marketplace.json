@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "atajo",
+  "description": "Atajo: un sistema operativo personal en español para Claude Code. Cuatro grupos de skills que puedes instalar por separado.",
+  "version": "0.3.0",
+  "owner": {
+    "name": "David Bajonero",
+    "url": "https://github.com/davidricardobc"
+  },
+  "plugins": [
+    {
+      "name": "nucleo",
+      "displayName": "Atajo: núcleo",
+      "source": "./",
+      "description": "Arranque guiado, retomar donde ibas, entrevista de una pregunta a la vez, revisión semanal, auditoría con evidencia y conexión de proyectos.",
+      "version": "0.3.0",
+      "author": {
+        "name": "David Bajonero",
+        "url": "https://github.com/davidricardobc"
+      },
+      "homepage": "https://github.com/davidricardobc/atajo",
+      "repository": "https://github.com/davidricardobc/atajo",
+      "license": "MIT",
+      "keywords": [
+        "espanol",
+        "productividad",
+        "memoria",
+        "prioridades",
+        "continuidad"
+      ],
+      "category": "productividad",
+      "skills": [
+        "./.claude/skills/arranque",
+        "./.claude/skills/retomar",
+        "./.claude/skills/entrevista",
+        "./.claude/skills/leveling",
+        "./.claude/skills/auditoria",
+        "./.claude/skills/conectar",
+        "./.claude/skills/red"
+      ]
+    },
+    {
+      "name": "ventas",
+      "displayName": "Atajo: ventas",
+      "source": "./",
+      "description": "Diagnóstico de clientes, propuestas de tres opciones en borrador y aprendizaje con fuentes.",
+      "version": "0.3.0",
+      "author": {
+        "name": "David Bajonero",
+        "url": "https://github.com/davidricardobc"
+      },
+      "homepage": "https://github.com/davidricardobc/atajo",
+      "repository": "https://github.com/davidricardobc/atajo",
+      "license": "MIT",
+      "keywords": [
+        "espanol",
+        "ventas",
+        "propuestas",
+        "diagnostico",
+        "clientes"
+      ],
+      "category": "negocio",
+      "skills": [
+        "./.claude/skills/diagnostico",
+        "./.claude/skills/propuesta",
+        "./.claude/skills/aprender"
+      ]
+    },
+    {
+      "name": "guardia",
+      "displayName": "Atajo: guardia",
+      "source": "./",
+      "description": "Revisión de seguridad con la Ley 1581 de Colombia y una puerta única antes de publicar cualquier cosa.",
+      "version": "0.3.0",
+      "author": {
+        "name": "David Bajonero",
+        "url": "https://github.com/davidricardobc"
+      },
+      "homepage": "https://github.com/davidricardobc/atajo",
+      "repository": "https://github.com/davidricardobc/atajo",
+      "license": "MIT",
+      "keywords": [
+        "espanol",
+        "seguridad",
+        "habeas-data",
+        "ley-1581",
+        "publicar"
+      ],
+      "category": "seguridad",
+      "skills": [
+        "./.claude/skills/seguridad",
+        "./.claude/skills/publicar"
+      ]
+    },
+    {
+      "name": "taller",
+      "displayName": "Atajo: taller",
+      "source": "./",
+      "description": "Delegar encargos acotados a Codex con nivel de razonamiento, carpeta propia y revisión del resultado.",
+      "version": "0.3.0",
+      "author": {
+        "name": "David Bajonero",
+        "url": "https://github.com/davidricardobc"
+      },
+      "homepage": "https://github.com/davidricardobc/atajo",
+      "repository": "https://github.com/davidricardobc/atajo",
+      "license": "MIT",
+      "keywords": [
+        "espanol",
+        "codex",
+        "orquestacion",
+        "subagentes"
+      ],
+      "category": "desarrollo",
+      "skills": [
+        "./.claude/skills/codex"
+      ]
+    }
+  ]
+}

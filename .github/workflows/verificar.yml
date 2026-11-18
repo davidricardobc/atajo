@@ -1,0 +1,49 @@
+# Verificación de Atajo: pruebas de los scripts y chequeo del kit en los tres sistemas.
+# Corre en cada push y pull request. No publica ni despliega nada.
+name: verificar
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Rama local para la prueba de instalación
+        run: git branch -f atajo-ci HEAD
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Pruebas de los scripts
+        run: node --test "scripts/pruebas/*.test.mjs"
+      - name: Verificación del kit (skills, enlaces, JSON, versiones, instaladores)
+        run: node scripts/verificar.mjs
+      - name: Instalación limpia desde este commit (Mac y Linux)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          ATAJO_ORIGEN="$GITHUB_WORKSPACE" ATAJO_RAMA=atajo-ci \
+          ATAJO_DESTINO="$RUNNER_TEMP/atajo" ATAJO_SIN_PREGUNTAS=1 bash scripts/instalar.sh
+          test -f "$RUNNER_TEMP/atajo/perfil/quien-soy.md"
+      - name: Instalación limpia desde este commit (Windows)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $env:ATAJO_ORIGEN = $env:GITHUB_WORKSPACE
+          $env:ATAJO_RAMA = 'atajo-ci'
+          $env:ATAJO_DESTINO = Join-Path $env:RUNNER_TEMP 'atajo'
+          $env:ATAJO_SIN_PREGUNTAS = '1'
+          Get-Content scripts/instalar.ps1 -Raw | Invoke-Expression
+          if (-not (Test-Path (Join-Path $env:ATAJO_DESTINO 'perfil\quien-soy.md'))) { exit 1 }

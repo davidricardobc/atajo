@@ -1,0 +1,20 @@
+{
+  "nombre": "Atajo",
+  "version": "0.3.0",
+  "firma": "github.com/davidricardobc/atajo",
+  "inicio": {
+    "max_lineas": 80,
+    "ahora_max_lineas": 60,
+    "cola_lineas": 15
+  },
+  "cierre": {
+    "tolerancia_segundos": 5
+  },
+  "indice": {
+    "excluir": ["archivo", "plantillas", "clientes", "docs", "red", "README.md", "README.en.md", "LEEME.md", "CREDITOS.md", "CONTRIBUIR.md", "CHANGELOG.md", "CLAUDE.md"],
+    "max_lineas": 200
+  },
+  "codex": {
+    "nivel_por_defecto": "medium"
+  }
+}
