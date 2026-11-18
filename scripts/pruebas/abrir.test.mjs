@@ -47,3 +47,26 @@ test('una dirección https se acepta tal cual', () => {
   assert.equal(r.codigo, 0);
   assert.equal(r.salida.trim(), 'Abriría: https://github.com/davidricardobc/atajo');
 });
+
+test('un programa o un acceso directo no se abre', () => {
+  const raiz = carpetaTemporal();
+  try {
+    for (const nombre of ['correr.bat', 'programa.exe', 'acceso.lnk', 'sin-extension']) {
+      fs.writeFileSync(path.join(raiz, nombre), 'x', 'utf8');
+      const r = abrir([nombre], raiz);
+      assert.equal(r.codigo, 1, nombre);
+      assert.match(r.error, /No abro archivos/);
+      assert.equal(r.salida, '');
+    }
+  } finally { fs.rmSync(raiz, { recursive: true, force: true }); }
+});
+
+test('una carpeta no se abre', () => {
+  const raiz = carpetaTemporal();
+  try {
+    fs.mkdirSync(path.join(raiz, 'carpeta'));
+    const r = abrir(['carpeta'], raiz);
+    assert.equal(r.codigo, 1);
+    assert.match(r.error, /No existe o no es un archivo/);
+  } finally { fs.rmSync(raiz, { recursive: true, force: true }); }
+});

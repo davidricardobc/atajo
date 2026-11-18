@@ -5,13 +5,16 @@
 //   node scripts/abrir.mjs proyectos/panaderia/demo.html
 //   node scripts/abrir.mjs https://github.com/davidricardobc/atajo
 //
-// Solo abre archivos que existen y direcciones http o https. No corre comandos.
+// Solo abre direcciones http o https y archivos que se pueden ver (páginas, textos, PDF, imágenes).
+// Nunca abre programas ni accesos directos (.exe, .bat, .lnk...): abrirlos sería ejecutarlos.
 // Con ATAJO_ABRIR_SIMULAR=1 dice qué abriría sin abrir nada (para pruebas).
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+
+const SE_PUEDEN_VER = new Set(['.html', '.htm', '.md', '.txt', '.pdf', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.csv']);
 
 const objetivo = process.argv[2];
 if (!objetivo) {
@@ -24,8 +27,13 @@ if (/^https?:\/\//i.test(objetivo)) {
   destino = objetivo;
 } else {
   const ruta = path.resolve(objetivo);
-  if (!fs.existsSync(ruta)) {
-    console.error(`No existe: ${ruta}`);
+  if (!fs.existsSync(ruta) || !fs.statSync(ruta).isFile()) {
+    console.error(`No existe o no es un archivo: ${ruta}`);
+    process.exit(1);
+  }
+  const extension = path.extname(ruta).toLowerCase();
+  if (!SE_PUEDEN_VER.has(extension)) {
+    console.error(`No abro archivos "${extension || 'sin extensión'}". Solo: ${[...SE_PUEDEN_VER].join(', ')}`);
     process.exit(1);
   }
   destino = pathToFileURL(ruta).href;
@@ -47,5 +55,7 @@ hijo.on('error', () => {
   console.error(`No pude abrirlo solo. Ábrelo a mano: ${destino}`);
   process.exit(1);
 });
-hijo.unref();
-console.log(`Abierto: ${destino}`);
+hijo.on('spawn', () => {
+  hijo.unref();
+  console.log(`Abierto: ${destino}`);
+});
