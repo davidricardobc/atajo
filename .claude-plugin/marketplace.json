@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "atajo",
   "description": "Atajo: un sistema operativo personal en español para Claude Code. Cuatro grupos de skills que puedes instalar por separado.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "owner": {
     "name": "David Bajonero",
     "url": "https://github.com/davidricardobc"
@@ -13,7 +13,7 @@
       "displayName": "Atajo: núcleo",
       "source": "./",
       "description": "Arranque guiado, retomar donde ibas, entrevista de una pregunta a la vez, revisión semanal, auditoría con evidencia y conexión de proyectos.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "author": {
         "name": "David Bajonero",
         "url": "https://github.com/davidricardobc"
@@ -44,7 +44,7 @@
       "displayName": "Atajo: ventas",
       "source": "./",
       "description": "Diagnóstico de clientes, propuestas de tres opciones en borrador y aprendizaje con fuentes.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "author": {
         "name": "David Bajonero",
         "url": "https://github.com/davidricardobc"
@@ -71,7 +71,7 @@
       "displayName": "Atajo: guardia",
       "source": "./",
       "description": "Revisión de seguridad con la Ley 1581 de Colombia y una puerta única antes de publicar cualquier cosa.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "author": {
         "name": "David Bajonero",
         "url": "https://github.com/davidricardobc"
@@ -96,8 +96,8 @@
       "name": "taller",
       "displayName": "Atajo: taller",
       "source": "./",
-      "description": "Delegar encargos acotados a Codex con nivel de razonamiento, carpeta propia y revisión del resultado.",
-      "version": "0.3.0",
+      "description": "Delegar encargos acotados a Codex con nivel de razonamiento, carpeta propia y revisión del resultado. Armar un equipo de agentes (investigador, constructor, redactor y revisor) para un encargo con partes independientes.",
+      "version": "0.4.0",
       "author": {
         "name": "David Bajonero",
         "url": "https://github.com/davidricardobc"
@@ -113,7 +113,14 @@
       ],
       "category": "desarrollo",
       "skills": [
-        "./.claude/skills/codex"
+        "./.claude/skills/codex",
+        "./.claude/skills/equipo"
+      ],
+      "agents": [
+        "./.claude/agents/investigador.md",
+        "./.claude/agents/constructor.md",
+        "./.claude/agents/redactor.md",
+        "./.claude/agents/revisor.md"
       ]
     }
   ]

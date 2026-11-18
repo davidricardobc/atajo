@@ -88,9 +88,11 @@ Pega estos pedidos dentro de Claude Code, en la carpeta de Atajo, después de `/
 
 Al cerrar la semana, para cualquiera: "Subamos de nivel: ¿qué estoy haciendo a mano que podamos automatizar?".
 
+Para poner a trabajar a varios agentes a la vez (`/equipo`): "Mañana me reúno con una panadería. Arma el equipo y prepárame la reunión."
+
 ## Las skills
 
-Una skill es un procedimiento que Claude sigue paso a paso. Se activan solas cuando pides algo parecido, o escribiendo su nombre con `/`. Para empezar te bastan cuatro:
+Una skill es un procedimiento que Claude sigue paso a paso. Se activan solas cuando pides algo parecido, o escribiendo su nombre con `/`. Para empezar te bastan cuatro, y `/equipo` cuando un encargo tiene partes que se pueden hacer a la vez:
 
 | Skill | Para qué sirve |
 |---|---|
@@ -98,6 +100,7 @@ Una skill es un procedimiento que Claude sigue paso a paso. Se activan solas cua
 | `/retomar` | Te dice en qué ibas y cuál es el siguiente paso, en una pestaña nueva o después de perder el contexto. |
 | `/red` | Dibuja tu sistema como una red de neuronas: tú, tus prioridades, proyectos, decisiones y skills, en una página local. |
 | `/leveling` | Revisión semanal: escoge una sola mejora, la construye, la prueba y sube un nivel. |
+| `/equipo` | Arma un equipo de agentes (investigador, constructor, redactor y revisor) que trabajan a la vez; tú apruebas lo que sale. |
 
 <details>
 <summary><strong>Las otras 9 skills, para cuando las necesites</strong></summary>
@@ -121,7 +124,7 @@ Una skill es un procedimiento que Claude sigue paso a paso. Se activan solas cua
 ```mermaid
 flowchart LR
     T["Tú"] -->|pides en español| C["Claude Code<br/>lee CLAUDE.md y tu manual"]
-    C --> S["13 skills<br/>/arranque, /retomar, /red..."]
+    C --> S["14 skills<br/>/arranque, /retomar, /red..."]
     C <-->|lee y anota cada avance| M[("Memoria en archivos<br/>perfil, bitácora, decisiones")]
     C -->|encargos acotados| A["Subagentes y Codex"]
     H["Hooks: inicio, cierre y guardia"] -.-> C
@@ -191,7 +194,7 @@ Atajo también es un marketplace de plugins de Claude Code:
 | `nucleo` | arranque, retomar, entrevista, leveling, auditoria, conectar, red |
 | `ventas` | diagnostico, propuesta, aprender |
 | `guardia` | seguridad, publicar |
-| `taller` | codex |
+| `taller` | codex, equipo (con sus cuatro agentes) |
 
 Ojo: las skills trabajan sobre los archivos del kit (`kit.json`, `perfil/`, `bitacora/`, `plantillas/`, `scripts/`). Si las usas en una carpeta sin el kit, la skill lo detecta, te avisa y te ofrece instalarlo. La experiencia completa (memoria, hooks, guardia) viene con el kit instalado.
 

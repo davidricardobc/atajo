@@ -4,7 +4,7 @@
 // - Cada skill de .claude/skills tiene frontmatter con name (igual a su carpeta) y description.
 // - La copia para Codex (.agents/skills y AGENTS.md) está al día.
 // - Los enlaces internos [texto](ruta) de los Markdown del kit apuntan a archivos que existen.
-// - Los JSON del kit se leen bien y las skills del marketplace existen.
+// - Los JSON del kit se leen bien y las skills y agentes del marketplace existen.
 // - La versión de kit.json coincide con la del marketplace y con la primera de CHANGELOG.md.
 // - Los instaladores tienen sintaxis válida (bash -n y el parser de PowerShell, si están).
 //
@@ -89,6 +89,9 @@ export function revisarJsonYVersiones(raiz) {
       if (version && plugin.version !== version) problemas.push(`plugin ${plugin.name}: versión ${plugin.version}, kit.json ${version}`);
       for (const skill of plugin.skills || []) {
         if (!fs.existsSync(path.join(raiz, skill, 'SKILL.md'))) problemas.push(`plugin ${plugin.name}: no existe ${skill}/SKILL.md`);
+      }
+      for (const agente of plugin.agents || []) {
+        if (!fs.existsSync(path.join(raiz, agente))) problemas.push(`plugin ${plugin.name}: no existe ${agente}`);
       }
     }
   }

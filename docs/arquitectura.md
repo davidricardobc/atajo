@@ -1,6 +1,6 @@
 # Arquitectura de Atajo
 
-Para quien quiere saber cómo está hecho antes de confiarle su trabajo. Versión 0.3.
+Para quien quiere saber cómo está hecho antes de confiarle su trabajo. Versión 0.4.
 
 ## En una frase
 
@@ -12,7 +12,8 @@ Atajo es una capa de convenciones encima de Claude Code: archivos Markdown como 
 |---|---|---|
 | Instrucciones del kit | `CLAUDE.md` | Reglas de continuidad, filtro de prioridades, autonomía y estilo. Importa `@perfil/manual.md`. |
 | Manual de la persona | `perfil/manual.md` | Quién es, sus 3 prioridades, el nivel de autonomía elegido y sus reglas propias. Lo genera `/arranque`. |
-| Skills | `.claude/skills/<nombre>/SKILL.md` | 13 procedimientos con frontmatter `name` y `description`. Claude Code los carga por descripción o con `/nombre`. |
+| Skills | `.claude/skills/<nombre>/SKILL.md` | 14 procedimientos con frontmatter `name` y `description`. Claude Code los carga por descripción o con `/nombre`. |
+| Agentes | `.claude/agents/<nombre>.md` | El equipo de base de `/equipo`: investigador, constructor, redactor y revisor. Cada uno trae sus herramientas y su modelo, sin web ni comandos. |
 | Copia para Codex | `AGENTS.md`, `.agents/skills/` | Generados por `scripts/sincronizar-skills.mjs` desde `CLAUDE.md` y `.claude/skills/`. |
 | Hooks | `.claude/settings.json` → `scripts/*.mjs` | SessionStart, Stop, PreCompact, PreToolUse y PostToolUse. Solo Node, sin paquetes. |
 | Plantillas de datos | `plantillas/datos/` | Estructura inicial de los datos. Se copian a la raíz sin pisar nada. |

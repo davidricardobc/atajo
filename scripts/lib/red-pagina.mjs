@@ -55,6 +55,7 @@ const FRASES_SKILLS = {
   seguridad: 'Revisa datos personales y claves.',
   publicar: 'Nada sale sin tu sí.',
   codex: 'Delega encargos a Codex.',
+  equipo: 'Reparte un encargo entre agentes.',
 };
 export const fraseSkill = (s) => FRASES_SKILLS[s.nombre]
   || (s.descripcion ? `${mayuscula(recortar(String(s.descripcion).replace(/\.$/, ''), 8))}.` : undefined);

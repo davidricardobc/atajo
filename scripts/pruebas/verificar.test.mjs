@@ -50,11 +50,12 @@ test('avisa si las versiones de kit.json, marketplace y CHANGELOG no coinciden',
     escribir(raiz, 'kit.json', '{"version":"0.2.0"}');
     escribir(raiz, '.claude/settings.json', '{}');
     escribir(raiz, 'plantillas/datos/kit.local.json', '{}');
-    escribir(raiz, '.claude-plugin/marketplace.json', '{"version":"0.1.0","plugins":[{"name":"n","version":"0.2.0","skills":["./.claude/skills/falta"]}]}');
+    escribir(raiz, '.claude-plugin/marketplace.json', '{"version":"0.1.0","plugins":[{"name":"n","version":"0.2.0","skills":["./.claude/skills/falta"],"agents":["./.claude/agents/fantasma.md"]}]}');
     escribir(raiz, 'CHANGELOG.md', '# Cambios\n\n## 0.2.0 · hoy\n');
     const p = revisarJsonYVersiones(raiz).join('\n');
     assert.match(p, /marketplace.json dice 0.1.0/);
     assert.match(p, /no existe .\/.claude\/skills\/falta\/SKILL.md/);
+    assert.match(p, /no existe .\/.claude\/agents\/fantasma.md/);
     assert.doesNotMatch(p, /CHANGELOG/);
   } finally { fs.rmSync(raiz, { recursive: true, force: true }); }
 });

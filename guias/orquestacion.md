@@ -1,6 +1,6 @@
 ---
 etiquetas: [guia, orquestacion, autonomia]
-actualizado: 2026-10-06
+actualizado: 2026-11-18
 ---
 # Orquestación: quién hace qué y qué necesita un sí
 
@@ -87,6 +87,8 @@ Delegar cuesta cupo de tu plan. Lo caro no es un modelo pequeño buscando más: 
 - Windows: no escribas scripts con rutas de Windows dentro de un heredoc de Bash; las barras invertidas se pierden. Escribe el script a un archivo y córrelo desde ahí.
 
 ## Trabajo en paralelo
+
+Para un encargo con partes independientes está `/equipo`: el orquestador lo parte en dos a cuatro piezas y las reparte entre los cuatro agentes de base de `.claude/agents/` (investigador, constructor, redactor y revisor), que corren a la vez. Cada agente trae su modelo según el nivel de la tabla de arriba y no publica, no paga ni escribe a terceros. Al final el revisor compara cada entrega con su criterio de terminado y tú das el sí.
 
 - Un encargo por carpeta o por worktree de git. Nunca dos agentes sobre los mismos archivos.
 - El orquestador anota en `bitacora/ahora.md` qué agentes corren y sobre qué frente, para que otra pestaña lo vea.

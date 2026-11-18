@@ -1,6 +1,6 @@
 {
   "nombre": "Atajo",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "firma": "github.com/davidricardobc/atajo",
   "inicio": {
     "max_lineas": 80,

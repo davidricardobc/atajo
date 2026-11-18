@@ -2,6 +2,22 @@
 
 Formato: una sección por versión, lo más nuevo arriba. Fechas en AAAA-MM-DD.
 
+## 0.4.0 · 2026-11-18
+
+### Nuevo
+
+- `/equipo`: la sesión principal hace de orquestador. Parte un encargo con partes independientes en dos a cuatro piezas, lanza los agentes en paralelo, manda a un revisor y entrega pidiendo tu sí. Nada sale hacia afuera sin ese sí.
+- `.claude/agents/`: el equipo de base de `/equipo`. `investigador` (hechos, hipótesis y preguntas, sin web), `constructor` (una pieza que se puede abrir), `redactor` (textos en tu voz, siempre BORRADOR) y `revisor` (compara cada entrega con su criterio de terminado). Ninguno tiene herramientas de web ni de comandos.
+- `scripts/abrir.mjs`: abre un archivo o una dirección web con el programa por defecto, sin intérprete de comandos. `/equipo` lo usa para mostrar lo que se puede ver.
+
+### Cambios
+
+- El plugin `taller` suma `/equipo` y sus cuatro agentes.
+- En Codex, que no tiene subagentes, `/equipo` hace las piezas en orden, una por una, con las reglas de cada rol.
+- `scripts/verificar.mjs` revisa también que existan los agentes del marketplace.
+- `/red` muestra `/equipo` con su frase de una línea.
+- `guias/orquestacion.md`, el README y la guía de la primera semana mencionan `/equipo`.
+
 ## 0.3.0 · 2026-11-18
 
 Primera versión pública.

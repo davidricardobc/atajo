@@ -34,10 +34,12 @@ Paste these inside Claude Code, in the Atajo folder, after `/arranque` (in Spani
 4. **Business owner, quotes:** "I build every quote by hand. Interview me and leave me a reusable quote template with my prices and terms."
 5. **Business owner, a hard decision:** "A client wants a 20% discount. Ask me what you need, help me decide, and log the decision and why in my decision log."
 
+To put several agents to work at once (`/equipo`): "Tomorrow I meet with a bakery. Build the team and prepare me for the meeting."
+
 ## How it works
 
 - **One coordinating agent.** Claude Code reads `CLAUDE.md` (kit rules) and `perfil/manual.md` (your rules) at startup.
-- **13 skills** as plain-text procedures. Four to start: `/arranque` (weekly plan in 4 questions), `/retomar` (where you left off), `/red` (your system as a network of neurons in a local page) and `/leveling` (one improvement per week). The rest cover interviews, audits, client diagnosis, three-option proposals, security review with Colombia's data protection law, a single publishing gate and Codex delegation.
+- **14 skills** as plain-text procedures. Four to start: `/arranque` (weekly plan in 4 questions), `/retomar` (where you left off), `/red` (your system as a network of neurons in a local page) and `/leveling` (one improvement per week). `/equipo` builds a team of agents (researcher, builder, writer and reviewer) that work at the same time, and you approve what goes out. The rest cover interviews, audits, client diagnosis, three-option proposals, security review with Colombia's data protection law, a single publishing gate and Codex delegation.
 - **Memory in files.** Profile, priorities and the resume point live in Markdown files you can read and edit. Your data is git-ignored, so kit updates never touch it.
 - **You approve.** Publishing, paying, deleting or messaging third parties always requires an explicit yes. A PreToolUse hook asks before push or deploy commands and blocks reads of secret files.
 

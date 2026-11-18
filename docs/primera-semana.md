@@ -15,6 +15,7 @@ Queda escrito: tu perfil, tus 3 prioridades y tu Cola de tareas.
 
 - Abre Claude Code en la carpeta y escribe `/retomar`. Te dice en qué ibas y el siguiente paso.
 - Haz la tarea 1 de tu semana con ayuda de Claude.
+- Si la tarea tiene varias partes (averiguar, armar algo, escribir), pide "Arma el equipo para…" y `/equipo` la reparte entre agentes.
 - Cuando termines algo, dilo ("ya mandé la propuesta"). Atajo lo anota.
 
 ## Día 3: saca lo que tienes en la cabeza

@@ -63,6 +63,6 @@ Cada sí queda en `bitacora/aprobaciones.md`. Aprobar la idea no es aprobar la a
 
 ## Skills
 
-`/arranque` (configurar o refrescar el perfil), `/retomar` (volver a donde iba), `/entrevista` (sacar lo que tengo en la cabeza), `/leveling` (una mejora por semana), `/auditoria` (comprobar con evidencia), `/conectar` (enlazar proyecto, carpeta o herramienta), `/diagnostico` y `/propuesta` (clientes), `/seguridad` (datos y Ley 1581), `/publicar` (la puerta única), `/aprender` (lecciones con fuente), `/codex` (delegar a Codex), `/red` (ver tu sistema como una red de neuronas). Las skills buscan la raíz del kit (`kit.json` hacia arriba); si no la encuentran, avisan que falta el kit. Después de crear o editar una skill corre `node scripts/sincronizar-skills.mjs`.
+`/arranque` (configurar o refrescar el perfil), `/retomar` (volver a donde iba), `/entrevista` (sacar lo que tengo en la cabeza), `/leveling` (una mejora por semana), `/auditoria` (comprobar con evidencia), `/conectar` (enlazar proyecto, carpeta o herramienta), `/diagnostico` y `/propuesta` (clientes), `/seguridad` (datos y Ley 1581), `/publicar` (la puerta única), `/aprender` (lecciones con fuente), `/codex` (delegar a Codex), `/equipo` (armar un equipo de agentes para un encargo con partes independientes), `/red` (ver tu sistema como una red de neuronas). Las skills buscan la raíz del kit (`kit.json` hacia arriba); si no la encuentran, avisan que falta el kit. Después de crear o editar una skill corre `node scripts/sincronizar-skills.mjs`.
 
 Atajo · © 2026 David Bajonero · MIT
